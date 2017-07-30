@@ -14,7 +14,7 @@ using namespace CEC;
 
 QT_BEGIN_NAMESPACE
 
-Q_LOGGING_CATEGORY(ceclog, "qt.ceckeyboard")
+Q_LOGGING_CATEGORY(ceclog, "qt.cecagent")
 
 #define MAX_CEC_DEVICES 10
 
@@ -309,7 +309,7 @@ static void CECCommandCallback(void *adapter, const cec_command* command)
 
 static void CECSourceActivatedCallback(void *adapter, const cec_logical_address address, const uint8_t activated)
 {
-    qCDebug(ceclog).noquote() << "CEC Source" << ((QCECKeyboardManager*) adapter)->addressToString(address) << (activated ? "Ativated" : "Deactivated");
+    qCDebug(ceclog).noquote() << "CEC Source" << ((QtCECAgent*) adapter)->addressToString(address) << (activated ? "Ativated" : "Deactivated");
 }
 
 QT_END_NAMESPACE
